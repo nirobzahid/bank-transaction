@@ -86,12 +86,18 @@ loginBtn.addEventListener("click", function(){
 
 const depositBtn = document.getElementById("addDeposit");
         depositBtn.addEventListener("click", function(){
-            const depositNumber = getInputNumber("depositAmount");        
-
+            const depositNumber = getInputNumber("depositAmount");
+            
+            if(depositNumber < 0)
+            alert("Negative number not accepted");
+            else{
+              
             updateSpanText("currentDeposit", depositNumber);
             updateSpanText("currentBalance", depositNumber);
 
             document.getElementById("depositAmount").value = "";
+            }
+
         })
 
         // withdraw button event handler
